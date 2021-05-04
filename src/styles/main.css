@@ -1,3 +1,213 @@
-img {
-    display: block;
+/*
+* Custom CSS
+*/
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    color: #616161;
+}
+
+button {
+	box-sizing: border-box;
+	min-width: 44px;
+	min-height: 44px;
+}
+
+/*
+*   Top Navigation
+*/
+.nav {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    background-color: #009688;
+}
+
+.nav-list {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 26px;
+}
+
+.nav a {
+    font-size: 14px;
+    display: inline-block;
+    padding: 22px;
+    text-decoration: none;
+    color: #fff;
+    transition: .5s;
+}
+
+.nav a:hover {
+    transform: scale(1.1);
+}
+
+/*
+*  Hero
+*/
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    width: 100%;
+    text-align: center;
+    background-image: url("/images/heros/hero-image_4.jpg");
+    background-position: center;
+    background-color: #ececec;
+}
+
+.hero-inner {
+    margin: 0 auto;
+	padding: 20px;
+    max-width: 800px;
+	background-color: rgba(0,0,0, 0.5);
+	border: 2px solid #fff;
+	text-align: center;
+}
+
+.hero-title {
+    color: #fff;
+    font-weight: 500;
+    font-size: 38px;
+	line-height: 36px;
+    margin: 0 0 15px 0;
+}
+
+.hero-description {
+    color: #fff;
+    font-weight: 400;
+    font-size: 20px;
+	line-height: 24px;
+    margin: 0;
+}
+
+
+/*
+ * main
+ */
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*
+ * List Restaurant
+ */
+.main-tittle {
+    color: #616161;
+    font-weight: 400;
+    font-size: 24px;
+	margin: 0 0 5px 0;
+ }
+ 
+.main-description {
+    color: #616161;
+    font-weight: 400;
+    font-size: 16px;
+	margin: 0 0 15px 0;
+ }
+ 
+.restaurant-list {
+	padding: 30px;
+	text-align: center;
+}
+
+.list {
+    margin: 30px auto auto;
+    text-align: left;
+}
+
+.list-item {
+    width: 100%;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+	margin: 20px 0;
+	transition: .5s;
+}
+
+.list-item:hover {
+    box-shadow: 0 0 15px 5px #b2dfdb;
+}
+
+.list-item_thumbnail, img {
+    width: 100%;
+}
+
+.list-item-content {
+    padding: 25px;
+}
+
+.content-title {
+    font-weight: 500;
+    font-size: 18px;
+	margin: 0 0 5px 0;
+}
+
+.content-title a {
+	text-decoration: none;
+    color: #616161;
+    transition: .5s;
+}
+
+.content-title a:hover{
+	text-decoration: none;
+    color: #000;
+}
+
+.content-description {
+	display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.content-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*
+ * Button read more
+ */
+ 
+.read-more {
+	text-transform: uppercase;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #009688;
+    color: #fff;
+    transition: .5s;
+}
+
+.read-more:hover {
+    background-color: #00695c;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+/*
+ * footer
+ */
+footer {
+    background-color: #009688;
+	color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+	border-top: 5px solid #b2dfdb;
 }
