@@ -163,7 +163,7 @@ button {
  * main
  */
 main {
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
 }
 
@@ -199,15 +199,21 @@ main {
     width: 100%;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+	border: 1px solid #80cbc4;
     overflow: hidden;
 	transition: .5s;
 }
 
 .list-item:hover {
-    box-shadow: 0 0 18px 8px #b2dfdb;
+    box-shadow: 0 0 18px 8px #80cbc4;
 }
 
-.list-item_thumbnail, img {
+.list-item-thumbnail  {
+    max-height: 180px;
+	overflow: hidden;
+}
+
+.list-item-thumbnail > img {
     width: 100%;
 }
 
@@ -230,6 +236,18 @@ main {
 .content-title a:hover{
 	text-decoration: none;
     color: #000;
+}
+
+.content-rating {
+    color: #616161;
+    font-weight: 400;
+    font-size: 16px;
+	margin: 0;
+}
+
+.content-rating > span {
+    color: #ffc107;
+	cursor: default;
 }
 
 .content-description {
@@ -264,13 +282,32 @@ main {
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
-/*
- * Button favoritkan
- */
 .p-relative {
 	position: relative;
 }
 
+/*
+ * Lokasi
+ */
+.box-content {
+	position: absolute;
+    background-color: #009688;
+    border-top: 2px solid #b2dfdb;
+    border-right: 2px solid #b2dfdb;
+    border-bottom: 2px solid #b2dfdb;
+    color: #fff;
+    top: 18px;
+    left: 0;
+    padding: 10px 20px;
+}
+
+.box-content > span {
+	text-transform: uppercase;
+}
+
+/*
+ * Button favoritkan
+ */
 .favorite-button {
 	position: absolute;
 	bottom: -20px;

@@ -1,3 +1,9 @@
+@media screen and (min-width: 550px) {
+    .list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media screen and (min-width: 650px) {
 	
 	.hero-inner {
@@ -36,4 +42,17 @@
     .list {
         grid-template-columns: 1fr 1fr 1fr;
     }
+}
+
+@media screen and (min-width: 1150px) {
+    .list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1550px) {
+	main {
+		max-width: 75%;
+		margin: 0 auto;
+	}
 }
