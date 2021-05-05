@@ -35,9 +35,15 @@ button {
 	z-index: 2;
 }
 
-.brand-name > a{
+.nav-brand > a{
     font-weight: 500;
     font-size: 20px !important;
+}
+
+.nav-menu {
+    font-weight: 500;
+    font-size: 20px !important;
+	cursor: pointer;
 }
 
 .nav-list {
@@ -84,8 +90,6 @@ button {
     margin: 0 auto;
 	padding: 20px;
     max-width: 800px;
-	background-color: rgba(0,0,0, 0.5);
-	border: 2px solid #fff;
 	text-align: center;
 }
 
@@ -137,7 +141,8 @@ main {
 }
 
 .list {
-    margin: 30px auto auto;
+    display: grid;
+    gap: 25px;
     text-align: left;
 }
 
@@ -146,12 +151,11 @@ main {
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     overflow: hidden;
-	margin: 20px 0;
 	transition: .5s;
 }
 
 .list-item:hover {
-    box-shadow: 0 0 15px 5px #b2dfdb;
+    box-shadow: 0 0 18px 8px #b2dfdb;
 }
 
 .list-item_thumbnail, img {
@@ -220,11 +224,11 @@ main {
 
 .favorite-button {
 	position: absolute;
-	bottom: -18px;
-	right: 86px;
+	bottom: -20px;
+	right: 40px;
 	cursor: pointer;
     border: none;
-    font-size: 20px;
+    font-size: 18px;
     background-color: #ff5252;
     color: #fff;
     transition: .5s;
@@ -236,7 +240,7 @@ main {
 .favorite-button:hover {
     background-color: #ff1744;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
-	transform: scale(1.2);
+	transform: scale(1.1);
 }
 
 /*
