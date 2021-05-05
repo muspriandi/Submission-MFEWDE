@@ -8,6 +8,28 @@
     .list {
         grid-template-columns: 1fr 1fr;
     }
+	
+	.nav-list {
+		background-color:unset;
+		border-right: unset;
+		width: unset;
+		height: unset;
+		position: unset;
+		transition: unset;
+		opacity: 1;
+	}
+
+	.nav-item {
+		display: inline-block;
+		box-sizing: border-box;
+		text-align: center;
+		line-height: 26px;
+		overflow: unset;
+	}
+	
+	.nav-menu {
+        display: none !important;
+    }
 }
 
 @media screen and (min-width: 850px) {
