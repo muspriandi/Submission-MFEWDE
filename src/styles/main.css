@@ -21,6 +21,23 @@ button {
 }
 
 /*
+*   Skip to content
+*/
+.skip-link {
+   position: absolute;
+   top: -40px;
+   left: 0;
+   background-color: #616161;
+   color: white;
+   padding: 10px;
+   z-index: 100;
+}
+
+.skip-link:focus {
+   top: 0;
+}
+
+/*
 *   Top Navigation
 */
 .nav {
@@ -257,7 +274,7 @@ main {
 .favorite-button {
 	position: absolute;
 	bottom: -20px;
-	right: 40px;
+	right: 25px;
 	cursor: pointer;
     border: none;
     font-size: 18px;
