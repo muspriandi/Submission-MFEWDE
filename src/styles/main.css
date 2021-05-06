@@ -25,12 +25,13 @@ button {
 */
 .skip-link {
    position: absolute;
-   top: -40px;
+   top: -70px;
    left: 0;
    background-color: #616161;
    color: white;
    padding: 10px;
    z-index: 100;
+   line-height: 50px;
 }
 
 .skip-link:focus {
@@ -94,6 +95,11 @@ button {
     font-size: 20px !important;
 	cursor: pointer;
 	width: unset !important;
+	border: 2px solid #ffff;
+    border-radius: 5px;
+    background-color: #009688;
+    color: #fff;
+    transition: .5s;
 }
 
 .nav a:hover {
@@ -170,7 +176,7 @@ main {
 /*
  * List Restaurant
  */
-.main-tittle {
+.main-title {
     color: #616161;
     font-weight: 400;
     font-size: 24px;
@@ -231,6 +237,8 @@ main {
 	text-decoration: none;
     color: #616161;
     transition: .5s;
+    display: inline-block;
+    line-height: 44px;
 }
 
 .content-title a:hover{

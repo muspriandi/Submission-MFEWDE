@@ -55,7 +55,7 @@ for(let i=0; i<json.restaurants.length; i++) {
 				<div class="box-content"><span>Kota ${ data['city'] }<span></div>
 			</div>
 			<div class="list-item-thumbnail">
-				<img src="${ data['pictureId'] }" alt="Gambar Restoran: ${ data['name'] }">
+				<img src="${ data['pictureId'] }" alt="${ data['name'] }">
 			</div>
 			<div class="p-relative" aria-label="Tekan untuk menyukai konten">
 				<button class="favorite-button">🖤</button>
