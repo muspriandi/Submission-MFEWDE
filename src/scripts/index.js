@@ -1,55 +1,27 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import '../styles/responsive.css';
+import App from './views/app';
 
-const menu = document.querySelector('#menu');
-const body = document.querySelector('body');
-const drawer = document.querySelector('#drawer');
-
-menu.addEventListener('click', function (event) {
-    drawer.classList.toggle('open');
-    body.classList.toggle('shadow');
-    event.stopPropagation();
+// eslint-disable-next-line no-unused-vars
+const app = new App({
+  menu: document.querySelector('#menu'),
+  drawer: document.querySelector('#drawer'),
+  body: document.querySelector('body'),
+  mediaQuery: window.matchMedia('(min-width: 650px)'),
 });
 
-body.addEventListener('click', function () {
-    drawer.classList.remove('open');
-    body.classList.remove('shadow');
-});
-
-
-/*
-*	Working with JavaScript Media Queries (https://css-tricks.com/working-with-javascript-media-queries/)
-*/
-const mediaQuery = window.matchMedia('(min-width: 650px)')
-
-function handleTabletChange(e) {
-	// Check if the media query is true
-	if (e.matches) {
-		// Then log the following message to the console
-		// console.log('Media Query Matched!')
-		drawer.classList.remove('open');
-		body.classList.remove('shadow');
-	}
-}
-// Register event listener
-mediaQuery.addListener(handleTabletChange)
-// Initial check
-handleTabletChange(mediaQuery)
-
-/*
-*	GET data list restaurant dari DATA.json
-*/
-let json = require('../DATA.json');
+/* GET data list restaurant dari DATA.json */
+const json = require('../DATA.json');
 // console.log(json.restaurants)
 
 let data = '';
 let listItem = '';
 
-for(let i=0; i<json.restaurants.length; i++) {
-	data = json.restaurants[i];
+for (let i = 0; i < json.restaurants.length; i++) {
+  data = json.restaurants[i];
 	
-	listItem += `
+  listItem += `
 		<article class="list-item">
 			<div class="p-relative">
 				<div class="box-content"><span>Kota ${ data['city'] }<span></div>
