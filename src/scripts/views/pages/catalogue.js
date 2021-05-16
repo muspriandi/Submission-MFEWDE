@@ -6,7 +6,7 @@ const Catalogue = {
   async render() {
     return `
         <section class="restaurant-list">
-            <h2 class="main-title">Katalog Restaurant</h2>
+            <h2 class="main-title">Catalogue Restaurant</h2>
             <p class="main-description">Daftar Restaurant Yang Tersedia</p>
             
             <div id="restaurantList" class="list"></div>
