@@ -275,6 +275,7 @@ main {
  */
  
 .read-more-button {
+    text-decoration: none;
 	text-transform: uppercase;
     cursor: pointer;
     padding: 10px 15px;
@@ -318,23 +319,28 @@ main {
  */
 .favorite-button {
 	position: absolute;
-	bottom: -20px;
-	right: 25px;
-	cursor: pointer;
+    bottom: -25px;
+    right: 25px;
+    cursor: pointer;
     border: none;
-    font-size: 18px;
+    font-size: 24px;
     background-color: #ff5252;
     color: #fff;
     transition: .5s;
     border-radius: 50%;
-    padding: 12px;
-	z-index: 1;
+    padding: 12px 14px;
+    z-index: 1;
 }
 
 .favorite-button:hover {
     background-color: #ff1744;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3);
 	transform: scale(1.1);
+}
+
+.favorite-button > i {
+    position: relative;
+    top: 2px;
 }
 
 /*

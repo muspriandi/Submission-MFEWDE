@@ -5,6 +5,10 @@ const CONFIG = {
   BASE_IMAGE_URL: 'BASE_IMG_URL',
   DEFAULT_LANGUAGE: 'en-us',
   CACHE_NAME: new Date().toISOString(),
+  DATABASE_NAME: 'near-restaurant-database',
+  DATABASE_VERSION: 1,
+  OBJECT_STORE_NAME: 'restaurants',
+
 };
 
 export default CONFIG;

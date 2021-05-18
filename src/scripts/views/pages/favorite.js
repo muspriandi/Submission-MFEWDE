@@ -1,12 +1,12 @@
 /* eslint-disable linebreak-style */
-import DataSource from '../../data/data-source';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb.';
 import { createCatalogueItem } from '../templates/template-creator';
 
-const Catalogue = {
+const Favorite = {
   async render() {
     return `
       <section class="restaurant-list">
-        <h2 class="main-title">Catalogue Restaurant</h2>
+        <h2 class="main-title">Favotite Restaurant</h2>
         <p class="main-description">Daftar Restaurant Yang Tersedia</p>
             
         <div id="restaurantList" class="list"></div>
@@ -15,7 +15,7 @@ const Catalogue = {
   },
 
   async afterRender() {
-    const restaurants = await DataSource.Catalogue();
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurants();
     const restaurantContainer = document.querySelector('#restaurantList');
 
     restaurants.forEach((restaurant) => {
@@ -24,4 +24,4 @@ const Catalogue = {
   },
 };
 
-export default Catalogue;
+export default Favorite;
