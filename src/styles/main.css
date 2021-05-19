@@ -215,7 +215,7 @@ main {
 }
 
 .list-item-thumbnail  {
-    max-height: 180px;
+    max-height: 165px;
 	overflow: hidden;
 }
 
@@ -231,17 +231,15 @@ main {
     font-weight: 500;
     font-size: 18px;
 	margin: 0 0 5px 0;
-}
-
-.content-title a {
 	text-decoration: none;
     color: #616161;
     transition: .5s;
     display: inline-block;
     line-height: 44px;
+    width: 100%;
 }
 
-.content-title a:hover{
+.content-title:hover{
 	text-decoration: none;
     color: #000;
 }
@@ -278,7 +276,7 @@ main {
     text-decoration: none;
 	text-transform: uppercase;
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 14px;
     border: none;
     border-radius: 5px;
     background-color: #009688;

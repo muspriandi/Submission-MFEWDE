@@ -6,8 +6,8 @@ const Favorite = {
   async render() {
     return `
       <section class="restaurant-list">
-        <h2 class="main-title">Favotite Restaurant</h2>
-        <p class="main-description">Daftar Restaurant Yang Tersedia</p>
+        <h2 class="main-title">Favorite Restaurant</h2>
+        <p class="main-description">Daftar Restoran Yang Disukai</p>
             
         <div id="restaurantList" class="list"></div>
       </section>

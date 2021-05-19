@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 import UrlParser from '../../routes/url-parser';
-import DataSource from '../../data/data-source';
+import RestaurantSource from '../../data/restaurant-source';
 import { createCatalogueDetail } from '../templates/template-creator';
 import LikeButtonInitiator from '../../utils/favorite-button-initiator';
 
@@ -18,23 +18,28 @@ const Detail = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await DataSource.Detail(url.id);
+    const restaurant = await RestaurantSource.Detail(url.id);
 
     const restaurantDetailContainer = document.querySelector('#restaurantDetail');
-    restaurantDetailContainer.innerHTML = createCatalogueDetail(restaurant);
 
-    const favoriteButtonContainer = document.querySelector('#favoriteButtonContainer');
-    LikeButtonInitiator.init({
-      favoriteButtonContainer,
-      restaurant: {
-        id: restaurant.id,
-        name: restaurant.name,
-        description: restaurant.description,
-        pictureId: restaurant.pictureId,
-        city: restaurant.city,
-        rating: restaurant.rating,
-      },
-    });
+    if (!restaurant.error) {
+      const rest = restaurant.restaurant;
+
+      restaurantDetailContainer.innerHTML = createCatalogueDetail(rest);
+
+      const favoriteButtonContainer = document.querySelector('#favoriteButtonContainer');
+      LikeButtonInitiator.init({
+        favoriteButtonContainer,
+        restaurant: {
+          id: rest.id,
+          name: rest.name,
+          description: rest.description,
+          pictureId: rest.pictureId,
+          city: rest.city,
+          rating: rest.rating,
+        },
+      });
+    }
   },
 };
 

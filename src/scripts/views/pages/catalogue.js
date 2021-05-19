@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-import DataSource from '../../data/data-source';
+import RestaurantSource from '../../data/restaurant-source';
 import { createCatalogueItem } from '../templates/template-creator';
 
 const Catalogue = {
@@ -7,7 +7,7 @@ const Catalogue = {
     return `
       <section class="restaurant-list">
         <h2 class="main-title">Catalogue Restaurant</h2>
-        <p class="main-description">Daftar Restaurant Yang Tersedia</p>
+        <p class="main-description">Daftar <span id="restaurantCount"></span> Restoran Yang Tersedia</p>
             
         <div id="restaurantList" class="list"></div>
       </section>
@@ -15,12 +15,17 @@ const Catalogue = {
   },
 
   async afterRender() {
-    const restaurants = await DataSource.Catalogue();
+    const restaurants = await RestaurantSource.Catalogue();
     const restaurantContainer = document.querySelector('#restaurantList');
+    const restaurantCount = document.querySelector('#restaurantCount');
 
-    restaurants.forEach((restaurant) => {
-      restaurantContainer.innerHTML += createCatalogueItem(restaurant);
-    });
+    restaurantCount.innerHTML += restaurants.count;
+
+    if (!restaurants.error) {
+      restaurants.restaurants.forEach((restaurant) => {
+        restaurantContainer.innerHTML += createCatalogueItem(restaurant);
+      });
+    }
   },
 };
 
