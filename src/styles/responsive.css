@@ -36,12 +36,22 @@
 	.nav-menu {
         display: none !important;
     }
+	
+	.panel {
+		padding: 0 15px;
+	}
 }
 
 @media screen and (min-width: 850px) {
     .list {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
+	.panel {
+		grid-template-columns: 1fr 1fr;
+		gap: 30px;
+		padding: 0 30px;
+	}
 }
 
 @media screen and (min-width: 1150px) {

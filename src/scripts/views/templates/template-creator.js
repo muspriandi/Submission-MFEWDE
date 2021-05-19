@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
 import CONFIG from '../../globals/config';
 
+//   Membuat rating star berdasarkan nilai paramter (count)
 function ratingStar(count) {
-  //   Membuat rating star berdasarkan nilai paramter (count)
   let star = '';
   for (let i = 1; i <= 5; i += 1) {
     if (i <= count) {
@@ -16,36 +16,92 @@ function ratingStar(count) {
   return star;
 }
 
+// Membuat list item sebanyak n jumlah variabel 'data'
+function listItem(data, type) {
+  let list = '';
+
+  data.forEach((item) => {
+    if (type === 'label') {
+      list += `<li class="label label-item">${item.name}</li>`;
+    } else if (type === 'food') {
+      list += `<li class="label food-item">${item.name}</li>`;
+    } else {
+      list += `<li class="label drink-item">${item.name}</li>`;
+    }
+  });
+
+  return list;
+}
+
 const createCatalogueItem = (restaurant) => `
-    <article class="list-item">
-      <div class="p-relative">
-          <div class="box-content"><span>Kota ${restaurant.city}<span></div>
+  <article class="list-item">
+    <div class="p-relative">
+        <div class="box-content"><span>Kota ${restaurant.city}<span></div>
+    </div>
+    
+    <div class="list-item-thumbnail">
+        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+    </div>
+    
+    <div class="list-item-content">
+      <a class="list-title" href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a>
+      <div class="rating-star">
+        (${restaurant.rating}) <span>${ratingStar(restaurant.rating)}</span>
       </div>
-      
-      <div class="list-item-thumbnail">
-          <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+      <p class="list-description">${restaurant.description}</p>
+      <div class="list-footer">
+        <a href="${`/#/detail/${restaurant.id}`}" class="read-more-button">Read More</a>
       </div>
-      
-      <div class="list-item-content">
-        <a class="content-title" href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a>
-        <p class="content-rating">
-          (${restaurant.rating}) <span>${ratingStar(restaurant.rating)}</span>
-        </p>
-        <p class="content-description">${restaurant.description}</p>
-        <div class="content-footer">
-          <a href="${`/#/detail/${restaurant.id}`}" class="read-more-button">Read More</a>
-        </div>
-      </div>
-    </article>
+    </div>
+  </article>
 `;
 
 const createCatalogueDetail = (restaurant) => `
-    <h2>${restaurant.name}</h2>
-    <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
-    <div>
-        <h3>Description</h3>
-        <p>${restaurant.description}
+  <div class="card">
+    <div class="card-body">
+
+      <div class="panel align-items-center">
+        <div>
+          <div class="p-relative">
+              <div class="box-content"><span>Kota ${restaurant.city}<span></div>
+          </div>
+          <img class="card-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+        </div>
+        <div>
+          <h2 class="card-title">${restaurant.name}</h2>
+          <p class="card-description">${restaurant.address}, Kota ${restaurant.city}</p>
+          <ul class="label-list">
+            ${listItem(restaurant.categories, 'label')}
+          </ul>
+          <div class="rating-star">
+            (${restaurant.rating}) <span>${ratingStar(restaurant.rating)}</span>
+          </div>
+          <hr />
+          <h3 class="card-sub-title">Description</h3>
+          <p class="card-description">${restaurant.description}
+        </div>
+      </div>
+
+      <br />
+      <hr />
+
+      <div class="panel">
+        <div>
+          <h3 class="card-sub-title">Food</h3>
+          <ul class="menu-list">
+            ${listItem(restaurant.menus.foods, 'food')}
+          </ul>
+        </div>
+        <div>
+          <h3 class="card-sub-title">Drink</h3>
+          <ul class="menu-list">
+            ${listItem(restaurant.menus.drinks, 'drink')}
+          </ul>
+        </div>
+      </div>
+
     </div>
+  </div>
 `;
 
 const createLikeButtonTemplate = () => `

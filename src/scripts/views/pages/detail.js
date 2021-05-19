@@ -8,10 +8,11 @@ const Detail = {
   async render() {
     return `
       <section class="restaurant-list">
-        <h2 class="main-title">Detil Restaurant</h2>
+        <h2 class="main-title">Restaurant Detail</h2>
+        <p class="main-description">Detail Restoran</p>
         
         <div id="restaurantDetail"></div>
-        <div class="p-relative" id="favoriteButtonContainer"></div>
+        <div id="favoriteButtonContainer"></div>
       </section>
     `;
   },
@@ -19,13 +20,13 @@ const Detail = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantSource.Detail(url.id);
-
     const restaurantDetailContainer = document.querySelector('#restaurantDetail');
 
     if (!restaurant.error) {
       const rest = restaurant.restaurant;
 
       restaurantDetailContainer.innerHTML = createCatalogueDetail(rest);
+      console.log(rest);
 
       const favoriteButtonContainer = document.querySelector('#favoriteButtonContainer');
       LikeButtonInitiator.init({

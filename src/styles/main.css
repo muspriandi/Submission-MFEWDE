@@ -14,10 +14,23 @@ body {
     color: #616161;
 }
 
+main {
+    width: 95%;
+    margin: 0 auto;
+}
+
 button {
 	box-sizing: border-box;
 	min-width: 44px;
 	min-height: 44px;
+}
+
+img {
+    width: 100%;
+}
+
+hr {
+    margin: 15px 0;
 }
 
 /*
@@ -53,6 +66,20 @@ button {
 	z-index: 3;
 }
 
+.nav a {
+    font-size: 14px;
+    display: inline-block;
+    padding: 22px 0;
+    text-decoration: none;
+    color: #fff;
+    transition: .5s;
+	width: 100%;
+}
+
+.nav a:hover {
+    transform: scale(1.1);
+}
+
 .nav-brand > a{
     font-weight: 500;
     font-size: 20px !important;
@@ -75,19 +102,13 @@ button {
 
 .nav-item {
 	display: block;
-	padding-left: 25px;
 	text-align: left;
 	overflow: hidden;
 }
 
-.nav a {
-    font-size: 14px;
-    display: inline-block;
-    padding: 22px 0;
-    text-decoration: none;
-    color: #fff;
-    transition: .5s;
-	width: 100%;
+.nav-item > a {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .nav-menu {
@@ -100,10 +121,6 @@ button {
     background-color: #009688;
     color: #fff;
     transition: .5s;
-}
-
-.nav a:hover {
-    transform: scale(1.1);
 }
 
 .open {
@@ -164,15 +181,6 @@ button {
     margin: 0;
 }
 
-
-/*
- * main
- */
-main {
-    width: 95%;
-    margin: 0 auto;
-}
-
 /*
  * List Restaurant
  */
@@ -219,15 +227,11 @@ main {
 	overflow: hidden;
 }
 
-.list-item-thumbnail > img {
-    width: 100%;
-}
-
 .list-item-content {
     padding: 25px;
 }
 
-.content-title {
+.list-title {
     font-weight: 500;
     font-size: 18px;
 	margin: 0 0 5px 0;
@@ -239,33 +243,33 @@ main {
     width: 100%;
 }
 
-.content-title:hover{
+.list-title:hover{
 	text-decoration: none;
     color: #000;
 }
 
-.content-rating {
-    color: #616161;
-    font-weight: 400;
-    font-size: 16px;
-	margin: 0;
-}
-
-.content-rating > span {
-    color: #ffc107;
-	cursor: default;
-}
-
-.content-description {
+.list-description {
 	display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-.content-footer {
+.list-footer {
     display: flex;
     justify-content: flex-end;
+}
+
+.rating-star {
+    color: #616161;
+    font-weight: 400;
+    font-size: 16px;
+	margin: 0;
+}
+
+.rating-star > span {
+    color: #ffc107;
+	cursor: default;
 }
 
 /*
@@ -292,6 +296,92 @@ main {
 .p-relative {
 	position: relative;
 }
+
+/*
+ * Wadah card
+ */
+.panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    text-align: left;
+    padding: 0;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+	border: 1px solid #80cbc4;
+    overflow: hidden;
+}
+
+.card-body {
+	padding: 30px;
+}
+
+.card-title {
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.card-sub-title {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.card-description {
+    font-size: 14px;
+    margin: 0;
+}
+
+.card-img {
+    border-radius: 15px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.label-list {
+	text-transform: uppercase;
+    padding: 0;
+}
+
+.label {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    margin: 5px 5px 5px 0;
+    text-align: center;
+    border-radius: 5px;
+    cursor: default;
+}
+
+.menu-list {
+    padding: 0;
+}
+
+.label-item {
+    background-color: #009688;
+    color: #fff;
+    padding: 5px 15px;
+}
+
+.food-item {
+    width: auto;
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.drink-item {
+    width: auto;
+    background-color: #ff9800;
+    color: #fff;
+}
+
 
 /*
  * Lokasi
