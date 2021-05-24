@@ -40,6 +40,10 @@
 	.panel {
 		padding: 0 15px;
 	}
+
+	.padding-md-right-30 {
+		padding-right: 30px;
+	}
 }
 
 @media screen and (min-width: 850px) {
@@ -51,6 +55,10 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 30px;
 		padding: 0 30px;
+	}
+
+	.padding-md-right-30 {
+		padding-right: 0;
 	}
 }
 

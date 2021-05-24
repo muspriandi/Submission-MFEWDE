@@ -198,7 +198,7 @@ hr {
 	margin: 0 0 25px 0;
  }
  
-.restaurant-list {
+.container {
 	padding: 30px;
 	text-align: center;
 }
@@ -405,18 +405,24 @@ hr {
 /*
  * Button favoritkan
  */
+.d-flex {
+    display: flex;
+    gap: 8px;
+}
+
+.content-around {
+    justify-content: space-between;
+}
+
 .favorite-button {
-	position: absolute;
-    bottom: -25px;
-    right: 25px;
     cursor: pointer;
     border: none;
-    font-size: 24px;
+    font-size: 26px;
     background-color: #ff5252;
     color: #fff;
     transition: .5s;
     border-radius: 50%;
-    padding: 12px 14px;
+    padding: 14px 16px;
     z-index: 1;
 }
 
@@ -426,9 +432,47 @@ hr {
 	transform: scale(1.1);
 }
 
-.favorite-button > i {
+.favorite-button i, .favorite-button svg {
     position: relative;
     top: 2px;
+}
+
+/*
+ * Padding & Margin
+ */
+.padding-md-right-30 {
+    padding-right: 0;
+}
+
+.margin-0 {
+    margin: 0;
+}
+
+.margin-top-30 {
+    margin-top: 30px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0;
+}
+
+.margin-bottom-5 {
+    margin-bottom: 5px;
+}
+
+/*
+ * footer
+ */
+.color-teal-lighten-2 {
+    color: #4db6ac;
+}
+
+.color-grey-darken-1 {
+    color: #757575;
 }
 
 /*

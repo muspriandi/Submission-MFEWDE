@@ -5,9 +5,9 @@ import { createCatalogueItem } from '../templates/template-creator';
 const Catalogue = {
   async render() {
     return `
-      <section class="restaurant-list">
+      <section class="container">
         <h2 class="main-title">Catalogue Restaurant</h2>
-        <p class="main-description">Daftar <span id="restaurantCount"></span> Restoran Yang Tersedia</p>
+        <p class="main-description color-grey-darken-1">Daftar <span id="restaurantCount"></span> Restoran Yang Tersedia</p>
             
         <div id="restaurantList" class="list"></div>
       </section>

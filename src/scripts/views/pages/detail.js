@@ -7,12 +7,11 @@ import LikeButtonInitiator from '../../utils/favorite-button-initiator';
 const Detail = {
   async render() {
     return `
-      <section class="restaurant-list">
+      <section class="container">
         <h2 class="main-title">Restaurant Detail</h2>
-        <p class="main-description">Detail Restoran</p>
+        <p class="main-description color-grey-darken-1">Detail Restoran</p>
         
         <div id="restaurantDetail"></div>
-        <div id="favoriteButtonContainer"></div>
       </section>
     `;
   },
@@ -26,7 +25,6 @@ const Detail = {
       const rest = restaurant.restaurant;
 
       restaurantDetailContainer.innerHTML = createCatalogueDetail(rest);
-      console.log(rest);
 
       const favoriteButtonContainer = document.querySelector('#favoriteButtonContainer');
       LikeButtonInitiator.init({

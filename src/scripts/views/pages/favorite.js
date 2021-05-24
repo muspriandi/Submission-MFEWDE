@@ -5,9 +5,9 @@ import { createCatalogueItem } from '../templates/template-creator';
 const Favorite = {
   async render() {
     return `
-      <section class="restaurant-list">
+      <section class="container">
         <h2 class="main-title">Favorite Restaurant</h2>
-        <p class="main-description">Daftar Restoran Yang Disukai</p>
+        <p class="main-description color-grey-darken-1">Daftar Restoran Yang Disukai</p>
             
         <div id="restaurantList" class="list"></div>
       </section>
