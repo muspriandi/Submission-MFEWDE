@@ -16,4 +16,9 @@ npm run start-dev
 npm run build
 ```
 
+### Automated test with Jasmine, Karma
+```bash
+npm run test
+```
+
 ###### [Mus Priandi &copy; 2021](https://github.com/muspriandi/)
