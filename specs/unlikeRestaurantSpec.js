@@ -1,5 +1,5 @@
 import * as TestFactories from './helpers/testFactories';
-import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb.';
+import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
 
 describe('Unliking A Restaurant', () => {
 

@@ -1,11 +1,11 @@
 /* eslint-disable linebreak-style */
-import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb.';
 import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/template-creator';
 
 const LikeButtonInitiator = {
-  async init({ favoriteButtonContainer, restaurant }) {
+  async init({ favoriteButtonContainer, favoriteRestaurants, restaurant }) {
     this.favoriteButtonContainer = favoriteButtonContainer;
     this.restaurant = restaurant;
+    this.favoriteRestaurants = favoriteRestaurants;
 
     await this.renderButton();
   },
@@ -21,7 +21,7 @@ const LikeButtonInitiator = {
   },
 
   async isRestaurantExist(id) {
-    const restaurant = await FavoriteRestaurantIdb.getRestaurant(id);
+    const restaurant = await this.favoriteRestaurants.getRestaurant(id);
     return !!restaurant;
   },
 
@@ -30,7 +30,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.putRestaurant(this.restaurant);
+      await this.favoriteRestaurants.putRestaurant(this.restaurant);
       this.renderButton();
     });
   },
@@ -40,7 +40,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector('#likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.deleteRestaurant(this.restaurant.id);
+      await this.favoriteRestaurants.deleteRestaurant(this.restaurant.id);
       this.renderButton();
     });
   },
