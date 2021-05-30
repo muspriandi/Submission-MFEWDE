@@ -20,15 +20,17 @@ function ratingStar(count) {
 function listItem(data, type) {
   let list = '';
 
-  data.forEach((item) => {
-    if (type === 'label') {
-      list += `<li class="label label-item">${item.name}</li>`;
-    } else if (type === 'food') {
-      list += `<li class="label food-item">${item.name}</li>`;
-    } else {
-      list += `<li class="label drink-item">${item.name}</li>`;
-    }
-  });
+  if(data) {
+    data.forEach((item) => {
+      if (type === 'label') {
+        list += `<li class="label label-item">${item.name}</li>`;
+      } else if (type === 'food') {
+        list += `<li class="label food-item">${item.name}</li>`;
+      } else {
+        list += `<li class="label drink-item">${item.name}</li>`;
+      }
+    });
+  }
 
   return list;
 }
@@ -37,22 +39,24 @@ function listItem(data, type) {
 function customerReviews(reviews) {
   let list = '';
 
-  reviews.forEach((review) => {
-    list += `
-      <div class="list-item">
-        <div class="list-item-content">
-          <div class="d-flex align-items-center">
-            <i class="fas fa-user-circle fa-3x color-teal-lighten-2"></i>
-            <div>
-              <h3 class="card-sub-title margin-0">${review.name}</h3>
-              <p class="card-description">${review.date}</p>
+  if(reviews) {
+    reviews.forEach((review) => {
+      list += `
+        <div class="list-item">
+          <div class="list-item-content">
+            <div class="d-flex align-items-center">
+              <i class="fas fa-user-circle fa-3x color-teal-lighten-2"></i>
+              <div>
+                <h3 class="card-sub-title margin-0">${review.name}</h3>
+                <p class="card-description">${review.date}</p>
+              </div>
             </div>
+            <p class="list-description margin-bottom-0">${review.review}</p>
           </div>
-          <p class="list-description margin-bottom-0">${review.review}</p>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
+  }
 
   return list;
 }
@@ -84,23 +88,23 @@ const createCatalogueDetail = (restaurant) => `
   <div class="card">
     <div class="card-body">
 
-      <div class="panel align-items-center">
+      <div class="panel align-items-center restaurant-item">
         <div>
           <div class="p-relative">
-              <div class="box-content"><span>Kota ${restaurant.city}<span></div>
+              <div class="box-content"><span>Kota ${restaurant.city || '-'}<span></div>
           </div>
-          <img class="card-img" src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+          <img class="card-img" src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
         </div>
         <div>
           <div class="d-flex content-around align-items-center padding-md-right-30">
             <div>
-              <h2 class="card-title">${restaurant.name}</h2>
-              <p class="card-description">${restaurant.address}, Kota ${restaurant.city}</p>
+              <h2 class="card-title restaurant_name">${restaurant.name || '-'}</h2>
+              <p class="card-description">${restaurant.address || '-'}, Kota ${restaurant.city || '-'}</p>
               <ul class="label-list">
                 ${listItem(restaurant.categories, 'label')}
               </ul>
               <div class="rating-star">
-                (${restaurant.rating}) <span>${ratingStar(restaurant.rating)}</span>
+                (${restaurant.rating || '-'}) <span>${ratingStar(restaurant.rating || '-')}</span>
               </div>
             </div>
             <div id="favoriteButtonContainer"></div>
@@ -108,7 +112,7 @@ const createCatalogueDetail = (restaurant) => `
           <hr />
           <h3 class="card-sub-title margin-bottom-5">Description</h3>
           <p class="card-description margin-0 color-grey-darken-1">Deskripsi</p>
-          <p class="card-description margin-top-20">${restaurant.description}
+          <p class="card-description margin-top-20">${restaurant.description || '-'}
         </div>
       </div>
 
@@ -125,7 +129,7 @@ const createCatalogueDetail = (restaurant) => `
             </div>
           </div>
           <ul class="menu-list">
-            ${listItem(restaurant.menus.foods, 'food')}
+            ${listItem(restaurant.menus ? restaurant.menus.foods : null, 'food')}
           </ul>
         </div>
         <div>
@@ -137,7 +141,7 @@ const createCatalogueDetail = (restaurant) => `
             </div>
           </div>
           <ul class="menu-list">
-            ${listItem(restaurant.menus.drinks, 'drink')}
+            ${listItem(restaurant.menus ? restaurant.menus.drinks : null, 'drink')}
           </ul>
         </div>
       </div>
