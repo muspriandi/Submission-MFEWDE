@@ -64,21 +64,21 @@ function customerReviews(reviews) {
 const createCatalogueItem = (restaurant) => `
   <article class="list-item">
     <div class="p-relative">
-        <div class="box-content"><span>Kota ${restaurant.city}<span></div>
+        <div class="box-content"><span>Kota ${restaurant.city || '-'}<span></div>
     </div>
     
     <div class="list-item-thumbnail">
-        <img src="${CONFIG.BASE_IMAGE_URL + restaurant.pictureId}" alt="${restaurant.name}">
+        <img src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
     </div>
     
     <div class="list-item-content">
-      <a class="list-title" href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a>
+      <a class="list-title" href="${`/#/detail/${restaurant.id || '-'}`}">${restaurant.name || '-'}</a>
       <div class="rating-star">
-        (${restaurant.rating}) <span>${ratingStar(restaurant.rating)}</span>
+        (${restaurant.rating || 0}) <span>${ratingStar(restaurant.rating || 0)}</span>
       </div>
-      <p class="list-description">${restaurant.description}</p>
+      <p class="list-description">${restaurant.description  || '-'}</p>
       <div class="list-footer">
-        <a href="${`/#/detail/${restaurant.id}`}" class="read-more-button">Read More</a>
+        <a href="${`/#/detail/${restaurant.id || '-'}`}" class="read-more-button">Read More</a>
       </div>
     </div>
   </article>
@@ -88,7 +88,7 @@ const createCatalogueDetail = (restaurant) => `
   <div class="card">
     <div class="card-body">
 
-      <div class="panel align-items-center restaurant-item">
+      <div class="panel align-items-center">
         <div>
           <div class="p-relative">
               <div class="box-content"><span>Kota ${restaurant.city || '-'}<span></div>
@@ -98,7 +98,7 @@ const createCatalogueDetail = (restaurant) => `
         <div>
           <div class="d-flex content-around align-items-center padding-md-right-30">
             <div>
-              <h2 class="card-title restaurant_name">${restaurant.name || '-'}</h2>
+              <h2 class="card-title">${restaurant.name || '-'}</h2>
               <p class="card-description">${restaurant.address || '-'}, Kota ${restaurant.city || '-'}</p>
               <ul class="label-list">
                 ${listItem(restaurant.categories, 'label')}

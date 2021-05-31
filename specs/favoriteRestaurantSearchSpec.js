@@ -5,7 +5,7 @@ import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
 describe('Searching restaurants', () => {
 
     let presenter;
-    let FavoriteRestaurants;
+    let favoriteRestaurants;
     let view;
 
     const searchRestaurants = (query) => {
@@ -20,9 +20,9 @@ describe('Searching restaurants', () => {
     };
 
     const constructPresenter = () => {
-        FavoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
+        favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantIdb);
         presenter = new FavoriteRestaurantSearchPresenter({
-            FavoriteRestaurants,
+            favoriteRestaurants,
             view,
         });
     };
@@ -42,27 +42,27 @@ describe('Searching restaurants', () => {
 
         it('should ask the model to search for liked restaurants', () => {
             searchRestaurants('restaurant A');
-            expect(FavoriteRestaurants.searchRestaurants).toHaveBeenCalledWith('restaurant A');
+            expect(favoriteRestaurants.searchRestaurants).toHaveBeenCalledWith('restaurant A');
         });
 
         it('should show the found restaurants', () => {
             presenter._showFoundRestaurants([{ id: 1, name: 'Test' }]);
-            expect(document.querySelectorAll('.restaurant-item').length).toEqual(1);
+            expect(document.querySelectorAll('.list-item').length).toEqual(1);
         
             presenter._showFoundRestaurants(
                 [{ id: 1, name: 'Satu' }, { id: 2, name: 'Dua' }],
             );
-            expect(document.querySelectorAll('.restaurant-item').length).toEqual(2);
+            expect(document.querySelectorAll('.list-item').length).toEqual(2);
         });
 
         it('should show the name of the found restaurants', (done) => {
             document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-                const restaurantsName = document.querySelectorAll('.restaurant_name');
+                const restaurantsName = document.querySelectorAll('.list-title');
                 expect(restaurantsName.item(0).textContent).toEqual('Rest ABC');
                 done();     
             });
             
-            FavoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([
+            favoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([
                 { id: 200, name:"Rest ABC" },
             ]);
         
@@ -71,12 +71,12 @@ describe('Searching restaurants', () => {
 
         it('should show - when the restaurant returned does not contain a name', (done) => {
             document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-                const restaurantsName = document.querySelectorAll('.restaurant_name');
+                const restaurantsName = document.querySelectorAll('.list-title');
                 expect(restaurantsName.item(0).textContent).toEqual('-');
                 done();     
             });
             
-            FavoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([
+            favoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([
                 { id: 200 },
             ]);
         
@@ -100,8 +100,8 @@ describe('Searching restaurants', () => {
             expect(presenter.latestQuery.length).toEqual(0);
 
             searchRestaurants(' ');
-            // expect(FavoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1);
-            expect(FavoriteRestaurants.getAllRestaurants).toHaveBeenCalled();
+            // expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1);
+            expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalled();
         });
     });
 
@@ -113,19 +113,19 @@ describe('Searching restaurants', () => {
                 done();   
             });
             
-            FavoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([]);
+            favoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([]);
 
             searchRestaurants('restaurant A');
         });
 
         it('should not show any restaurant', (done) => {
             document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-                expect(document.querySelectorAll('.restaurant-item').length).toEqual(0);
+                expect(document.querySelectorAll('.list-item').length).toEqual(0);
 
                 done();
             });
             
-            FavoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([]);
+            favoriteRestaurants.searchRestaurants.withArgs('restaurant A').and.returnValues([]);
 
             searchRestaurants('restaurant A');
         });
