@@ -6,7 +6,7 @@ class FavoriteRestaurantSearchView {
             <section class="container">
                 <h2 class="main-title">Favorite Restaurant</h2>
                 <p class="main-description color-grey-darken-1">Daftar Restoran Yang Disukai</p>
-                <input id="query" type="text">
+                <input id="query" type="text" placeholder="Cari di sini!">
                 
                 <div id="restaurants" class="restaurants list"></div>
             </section>
@@ -40,7 +40,7 @@ class FavoriteRestaurantSearchView {
     }
 
     _getEmptyMovieTemplate() {
-        return '<div class="restaurant_not_found">Restoran tidak ditemukan!</div>';
+        return '<div class="restaurant_not_found align-items-center">Restoran tidak ditemukan!</div>';
     }
 }
 

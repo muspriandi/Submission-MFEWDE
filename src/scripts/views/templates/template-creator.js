@@ -68,7 +68,11 @@ const createCatalogueItem = (restaurant) => `
     </div>
     
     <div class="list-item-thumbnail">
-        <img src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+      <picture>
+        <source media="(max-width: 650px)" srcset="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL_SMALL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+        <source media="(max-width: 850px)" srcset="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+        <img class="lazyload" src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL_LARGE + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+      </picture>
     </div>
     
     <div class="list-item-content">
@@ -93,7 +97,11 @@ const createCatalogueDetail = (restaurant) => `
           <div class="p-relative">
               <div class="box-content"><span>Kota ${restaurant.city || '-'}<span></div>
           </div>
-          <img class="card-img" src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+          <picture>
+            <source media="(max-width: 650px)" srcset="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL_SMALL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+            <source media="(max-width: 850px)" srcset="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL_MEDIUM + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+            <img class="lazyload" class="card-img" src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL_LARGE + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}">
+          </picture>
         </div>
         <div>
           <div class="d-flex content-around align-items-center padding-md-right-30">
