@@ -6,11 +6,11 @@ function ratingStar(count) {
   let star = '';
   for (let i = 1; i <= 5; i += 1) {
     if (i <= count) {
-      star += '<i class="fas fa-star fa-lg"></i>';
+      star += '<i class="fa fa-star fa-lg"></i>';
     } else if ((i - 0.5) <= count) {
-      star += '<i class="fas fa-star-half-alt fa-lg"></i>';
+      star += '<i class="fa fa-star-half-o fa-lg"></i>';
     } else {
-      star += '<i class="far fa-star fa-lg"></i>';
+      star += '<i class="fa fa-star-o fa-lg"></i>';
     }
   }
   return star;
@@ -45,7 +45,7 @@ function customerReviews(reviews) {
         <div class="list-item">
           <div class="list-item-content">
             <div class="d-flex align-items-center">
-              <i class="fas fa-user-circle fa-3x color-teal-lighten-2"></i>
+              <i class="fa fa-user-circle fa-3x color-teal-lighten-2"></i>
               <div>
                 <h3 class="card-sub-title margin-0">${review.name}</h3>
                 <p class="card-description">${review.date}</p>
@@ -130,7 +130,7 @@ const createCatalogueDetail = (restaurant) => `
       <div class="panel">
         <div>
           <div class="d-flex align-items-center margin-top-20">
-            <i class="fas fa-utensils fa-3x color-teal-lighten-2"></i>
+            <i class="fa fa-spoon fa-3x color-teal-lighten-2"></i>
             <div>
               <h3 class="card-sub-title margin-0">Food List</h3>
               <p class="card-description margin-0 color-grey-darken-1">Daftar Makanan</p>
@@ -142,7 +142,7 @@ const createCatalogueDetail = (restaurant) => `
         </div>
         <div>
           <div class="d-flex align-items-center margin-top-20">
-            <i class="fas fa-coffee fa-3x color-teal-lighten-2"></i>
+            <i class="fa fa-coffee fa-3x color-teal-lighten-2"></i>
             <div>
               <h3 class="card-sub-title margin-0">Drink List</h3>
               <p class="card-description margin-0 color-grey-darken-1">Daftar Minuman</p>
@@ -167,11 +167,11 @@ const createCatalogueDetail = (restaurant) => `
 `;
 
 const createLikeButtonTemplate = () => `
-    <button class="favorite-button" aria-label="Click to Like" id="likeButton"><i class="far fa-heart" aria-hidden="true"></i></button>
+    <button class="favorite-button" aria-label="Click to Like" id="likeButton"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
 `;
 
 const createLikedButtonTemplate = () => `
-    <button class="favorite-button" aria-label="Click to Dislike" id="likeButton"><i class="fas fa-heart" aria-hidden="true"></i></button>
+    <button class="favorite-button" aria-label="Click to Dislike" id="likeButton"><i class="fa fa-heart" aria-hidden="true"></i></button>
 `;
 
 export {

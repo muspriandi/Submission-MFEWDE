@@ -60,6 +60,10 @@
 	.padding-md-right-30 {
 		padding-right: 0;
 	}
+
+	.hero {
+		background-image: url("/images/heros/hero-image_4-large.jpg");
+	}
 }
 
 @media screen and (min-width: 1150px) {
